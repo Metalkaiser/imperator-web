@@ -4,6 +4,9 @@
   "description": "Aplicación de inventario para Imperator",
   "main": "index.js",
   "scripts": {
+    "client": "cd ReactJS_FrontEnd && npm start",
+    "server": "cd Laravel_BackEnd && php artisan serve",
+    "start": "concurrently \"npm run server\" \"npm run client\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Juan Polanco",
