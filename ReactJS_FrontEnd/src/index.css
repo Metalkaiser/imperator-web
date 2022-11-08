@@ -27,3 +27,19 @@ code {
 #content {
   margin: 2em;
 }
+footer {
+  height: 60px;
+}
+#links {
+  width: 200px;
+}
+#links a {
+  text-decoration: none;
+}
+.card-md {
+  width: 49%;
+  min-height: 50%;
+}
+hr {
+  opacity: 20%;
+}

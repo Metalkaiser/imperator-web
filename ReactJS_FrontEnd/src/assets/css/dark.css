@@ -1,10 +1,10 @@
 .top-header {
   background-color:#101820;
 }
-.subheader {
+.subheader, footer, #links a {
   background-color: #4E2A2C
 }
-aside {
+aside, .card-md {
   background-color:#101820;
 }
 #userinit {

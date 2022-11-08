@@ -1,8 +1,9 @@
 .top-header {
   background-color:rgb(255, 228, 196);
 }
-.subheader {
-  background-color: #fff
+.subheader, footer, #links a {
+  background-color: #fff;
+  color:dimgrey;
 }
 aside {
   background-color:#5D2A2C;
@@ -19,4 +20,7 @@ aside {
 #aside_menu_wrapper {
   width: 70%;
   background-color: rgba(255, 228, 196, 0.3);
+}
+.card-md {
+  background-color: rgb(248, 249, 250);
 }

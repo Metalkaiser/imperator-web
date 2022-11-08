@@ -35,7 +35,7 @@ export default function Aside(props) {
   return (
     <aside className="d-flex flex-column align-items-center">
       <div className="d-flex flex-column justify-content-center text-center" id="logo">
-        <Link to="/">
+        <Link to="dashboard">
           <img src={logo} alt="Logo" />
         </Link>
       </div>

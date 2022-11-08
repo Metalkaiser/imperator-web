@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Outlet } from "react-router-dom";
 import Aside from "./Aside";
 import Header from "./Header";
-import Subheader from "./Subheader";
+import Footer from "./Footer";
 
 const LightTheme = React.lazy(() => import('./themes/Light'));
 const DarkTheme = React.lazy(() => import('./themes/Dark'));
@@ -43,13 +43,12 @@ export default function Layout(){
         <AsideSelector />
         <div className="d-flex flex-column flex-grow-1">
           <Header title="Título" />
-          <div id="kt_content">
-            <Subheader title="Título" />
-            <div className='m-3'>
-            <Outlet />
+          <div className='flex-grow-1'>
+            <div className='p-4 h-100'>
+              <Outlet />
             </div>
           </div>
-          <div id="kt_footer"></div>
+          <Footer />
         </div>
       </article>
     </section>
