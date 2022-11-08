@@ -1,0 +1,22 @@
+.top-header {
+  background-color:rgb(255, 228, 196);
+}
+.subheader {
+  background-color: #fff
+}
+aside {
+  background-color:#5D2A2C;
+}
+#userinit {
+  background-color: aquamarine;
+}
+.submenu ul li a, .menu-link span {
+  color: bisque;
+}
+#root {
+  background-color: #EEF0F8;
+}
+#aside_menu_wrapper {
+  width: 70%;
+  background-color: rgba(255, 228, 196, 0.3);
+}

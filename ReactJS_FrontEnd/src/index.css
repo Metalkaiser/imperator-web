@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+#userinit {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+}
+#userinit:hover {
+  cursor: pointer;
+}
+.top-header, .subheader {
+  height: 60px;
+}
+#content {
+  margin: 2em;
+}

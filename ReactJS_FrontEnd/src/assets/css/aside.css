@@ -1,0 +1,32 @@
+.menu-link:hover {
+  cursor: pointer;
+}
+.submenu {
+  display: none;
+}
+.submenu ul, #aside_menu_wrapper ul {
+  list-style: none;
+  padding-left: 0%;
+}
+.submenu ul li {
+  margin-top: 1em;
+}
+.submenu ul li a {
+  text-decoration: none;
+}
+.menu-link img {
+  display: block;
+  margin: auto;
+}
+.submenu span {
+  font-size: 14px;
+}
+aside {
+  min-width: 17%;
+}
+#logo {
+  height: 120px;
+}
+#logo img {
+  max-width: 100px;
+}
