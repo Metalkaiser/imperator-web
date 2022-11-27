@@ -1,8 +1,9 @@
 import React from 'react';
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Aside from "./Aside";
 import Header from "./Header";
 import Footer from "./Footer";
+import Subheader from "./Subheader";
 
 const LightTheme = React.lazy(() => import('./themes/Light'));
 const DarkTheme = React.lazy(() => import('./themes/Dark'));
@@ -35,6 +36,21 @@ const AsideSelector = ({ children }) => {
 
 
 export default function Layout(){
+  const location = useLocation();
+  let currentRoute = location.pathname;
+
+  const routeTitles = new Map([
+    ['/tienda/dashboard','Dashboard'],
+    ['/tienda/inventario','Inventario'],
+    ['/tienda/gastos','Gastos'],
+    ['/tienda/compras','Compras'],
+    ['/tienda/compras/nueva','Añadir compra'],
+    ['/tienda/ventas','Ventas'],
+    ['/tienda/ventas/nueva','Añadir venta'],
+  ]);
+
+  let title = routeTitles.get(currentRoute);
+
   return (
     <ThemeSelector>
     <div id="kt_header_mobile"></div>
@@ -42,8 +58,9 @@ export default function Layout(){
       <article className="d-flex flex-row w-100 min-vh-100">
         <AsideSelector />
         <div className="d-flex flex-column flex-grow-1">
-          <Header title="Título" />
+          <Header />
           <div className='flex-grow-1'>
+            <Subheader title={title} />
             <div className='p-4 h-100'>
               <Outlet />
             </div>

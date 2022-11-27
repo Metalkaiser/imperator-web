@@ -1,16 +1,16 @@
 .top-header {
   background-color:#101820;
 }
-.subheader, footer, #links a {
+.subheader, footer, #links a, .form-control, .form-check-input, .form-select {
   background-color: #4E2A2C
 }
-aside, .card-md {
+aside, .card-md, .swal2-popup {
   background-color:#101820;
 }
 #userinit {
   background-color: aquamarine;
 }
-.submenu ul li a, .menu-link span {
+.submenu ul li a, .menu-link span, .swal2-popup {
   color: bisque;
 }
 #root {
@@ -34,4 +34,18 @@ aside, .card-md {
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
   --bs-table-accent-bg: transparent;
+}
+.form-control, .form-select {
+  border: 0px;
+  color: white;
+}
+.form-control:focus {
+  background-color: #7D3034;
+  color: white;
+}
+.btn-save:hover, .form-control:disabled {
+  background-color: #6c757d;
+}
+.btn-save {
+  background-color: #7D3034;
 }
