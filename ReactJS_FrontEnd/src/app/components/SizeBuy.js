@@ -26,7 +26,12 @@ export default function SizeBuy(props) {
           onChange={ handleOnChange } />
       </label>
       <div className="mt-2">
-        <input type="number" className="form-control" id={"quantity" + indexes} name={"quantity" + indexes} disabled />
+        <input type="number"
+          className="form-control"
+          id={"quantity" + indexes}
+          name={"quantity" + indexes}
+          min="1"
+          disabled />
       </div>
     </div>
   );

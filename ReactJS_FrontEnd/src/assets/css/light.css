@@ -30,3 +30,6 @@ aside {
 .product {
   background-color: white;
 }
+.product-title:hover {
+  background-color: bisque;
+}

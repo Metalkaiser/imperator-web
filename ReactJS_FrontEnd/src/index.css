@@ -46,3 +46,6 @@ hr {
 .btn-save {
   color: white;
 }
+.product-title:hover {
+  cursor: pointer;
+}

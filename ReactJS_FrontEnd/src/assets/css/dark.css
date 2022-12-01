@@ -49,3 +49,6 @@ aside, .card-md, .swal2-popup {
 .btn-save {
   background-color: #7D3034;
 }
+.product-title:hover {
+  background-color: #4E2A2C;
+}
