@@ -5,7 +5,6 @@ export default function SizeBuy(props) {
   */
   const handleOnChange = (e) => {
     let input = "quantity" + e.target.id.substring(4);
-    console.log(input);
     document.querySelector('[id^="' + input + '"]').disabled = !e.target.checked;
   }
 
@@ -22,7 +21,7 @@ export default function SizeBuy(props) {
     <div className="col form-check">
       <label className="form-check-label" htmlFor={"size" + indexes}>
         {props.size}
-      <input className="form-check-input" id={"size" + indexes} name={"size" + indexes} type="checkbox"
+      <input className="form-check-input" value={props.size} id={"size" + indexes} name={"size" + indexes} type="checkbox"
           onChange={ handleOnChange } />
       </label>
       <div className="mt-2">

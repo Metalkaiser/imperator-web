@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import jQuery from 'jquery';
 import React from 'react';
 import Products from '../../components/Products';
+import Swal from 'sweetalert2';
 
 export default class Newbuy extends React.Component {
   constructor(props){
@@ -21,21 +22,29 @@ export default class Newbuy extends React.Component {
     {
       id:2,
       supplier:'Proveedor 2',
-      products:[3]
+      products:[3,4]
     }
   ];
   products = [
     {
       id:1,
-      product:'Producto 1'
+      product:'Producto 1',
+      type:'ring'
     },
     {
       id:2,
-      product:'Producto 2'
+      product:'Producto 2',
+      type:'ring'
     },
     {
       id:3,
-      product:'Producto 3'
+      product:'Producto 3',
+      type:'ring'
+    },
+    {
+      id:4,
+      product:'Producto 4',
+      type:'collarchain'
     }
   ];
   models = [
@@ -77,6 +86,15 @@ export default class Newbuy extends React.Component {
           name:'plateado'
         }
       ]
+    },
+    {
+      id:4,
+      models:[
+        {
+          id:7,
+          name:'60cm'
+        }
+      ]
     }
   ];
   sizes = [
@@ -103,6 +121,10 @@ export default class Newbuy extends React.Component {
     {
       id:6,
       p_sizes:[7,8,9,10,11,12,13]
+    },
+    {
+      id:7,
+      p_sizes:[60]
     }
   ];
 
@@ -138,7 +160,6 @@ export default class Newbuy extends React.Component {
       this.modelsMap.get(product_id).models.forEach(model => {
         sizes.push(this.sizesMap.get(model.id));
       });
-
       this.productlist.push(
         <Products
         key={product_id}
@@ -154,9 +175,46 @@ export default class Newbuy extends React.Component {
     jQuery('#product-list').show();
   }
 
+  /*
+    This function is called when the user is trying to load the data of the new stock buying
+  */
   saveBuy(){
-    console.log("Guardar");
-    console.log(jQuery('form').serializeArray());
+    let inputs = jQuery('form').serializeArray(); //getting all input fields
+    let checkboxes = Object.values(jQuery('input[type=checkbox]'));
+    let empty = false;      //boolean variable for checking if there is any empty input field
+    let checked = false;    //boolean variable for checking if there is any checked checkbox
+    inputs.forEach(input => {
+      //if there is an empty input field....
+      if (input.value === '') {
+        empty = true;
+      }
+    });
+    //....or there is no checked checkbox....
+    checkboxes.forEach(checkbox => {
+      if (checkbox.type === 'checkbox') {
+        if (checkbox.checked) {
+          checked = true;
+        }
+      }
+    });
+    //....this SweetAlert2 error modal will be displayed...
+    if (empty || !checked) {
+      Swal.fire({
+        title: 'Llene todos los campos requeridos',
+        icon: 'error'
+      })
+    }
+    //....if not, proceed to save buying data
+    else {
+      Swal.fire({
+        title: 'Compra guardada!',
+        icon: 'success'
+      }).finally(() => {
+        jQuery('form').find('input').val('');
+        jQuery('form').find('select').val('');
+        jQuery('#product-list').hide();
+      })
+    }
   }
 
   render(){

@@ -49,3 +49,7 @@ hr {
 .product-title:hover {
   cursor: pointer;
 }
+.swsizes {
+  width: 20%;
+  margin: auto;
+}

@@ -42,7 +42,7 @@ export default function Layout(){
   const routeTitles = new Map([
     ['/tienda/dashboard','Dashboard'],
     ['/tienda/inventario','Inventario'],
-    ['/tienda/gastos','Gastos'],
+    ['/tienda/balances','Balances'],
     ['/tienda/compras','Compras'],
     ['/tienda/compras/nueva','Añadir compra'],
     ['/tienda/ventas','Ventas'],
@@ -73,3 +73,4 @@ export default function Layout(){
     </ThemeSelector>
   );
 }
+//ibb.co/tZcvFBk

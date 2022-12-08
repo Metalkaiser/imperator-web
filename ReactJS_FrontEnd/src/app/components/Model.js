@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
-import jQuery from "jquery";
 import SizeBuy from "./SizeBuy";
 
 export default function Model(props){
 
-
   //Create a SizeBuy component for each size
   let sizes = [];
-  console.log(props.sizes);
   props.sizes.p_sizes.forEach((size, index) => {
     sizes.push(<SizeBuy 
       key={size + "_" + index}
@@ -18,8 +15,12 @@ export default function Model(props){
       sizen={index} />)
   });
 
+  const [sizesList,addNewSize] = useState(props.sizes.p_sizes); //initiate a state hook for sizes
+  const [sizesComponents,addNewSizeComp] = useState(sizes); //initiate a state hook for size components
 
+  //function called when hit the button to add a new size
   const addSize = (e) => {
+    //fires a SweetAlert2 modal asking if user is sure about adding a new size to the current model
     Swal.fire({
       title: 'Agregar talla nueva',
       icon: 'question',
@@ -27,22 +28,41 @@ export default function Model(props){
       showCancelButton: true,
       allowOutsideClick: false,
       allowEscapeKey: false,
-    }).then((res) => {
+    }).then(res => {
+      //if user confirms new size
       if (res.isConfirmed) {
-        let indexes = jQuery(e.target).parents().eq(1).children().last().children().eq(0).attr('for');
-        let productn = indexes.substring(5,6);
-        let modeln = indexes.substring(8,9);
-        let sizen = parseInt(indexes.substring(11,12)) + 1;
-        indexes = '[' + productn + '][' + modeln + '][' + sizen + ']';
-        console.log(jQuery(e.target).parents().eq(1));
-        let newSize = "<div class='col form-check'><label class='form-check-label' for='size"
-        + indexes + "'><input class='form-control' id='size"
-        + indexes + "' name='size"
-        + indexes + "' type='text' placeholder='Talla'></label><div class='mt-2'><input type='number' class='form-control' id='quantity"
-        + indexes + "' name='quantity"
-        + indexes + "' ></div></div>";
-        console.log(jQuery('.models'));
-        jQuery(e.target).parents().eq(1).append(newSize);
+        let swNewSize = null; //the new size
+        //fires a SweetAlert2 modal asking for the value of the new size
+        Swal.fire({
+          title: 'Ingrese la talla nueva',
+          html: "<input type='text' id='swnewsize' placeholder='Talla nueva'>",
+          showCancelButton: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          preConfirm: () => {
+            swNewSize = parseInt(document.getElementById('swnewsize').value);   //getting the new size value
+          }
+        }).then(resp => {
+          if (resp.isConfirmed) {
+            //if new size doesn't already exists on the current model
+            if (!sizesList.includes(swNewSize)) {
+              addNewSize(sizesList.concat(swNewSize));
+              addNewSizeComp(sizesComponents.concat(<SizeBuy 
+                key={swNewSize + "_" + sizesList.length}
+                productn={props.productn}
+                modeln={props.modeln}
+                size={swNewSize} 
+                sizen={sizesList.length} />));
+            }
+            //if new size already exists on the current model
+            else {
+              Swal.fire({
+                title: 'La talla ' + swNewSize + ' ya existe en este modelo',
+                icon: 'error'
+              });
+            }
+          }
+        })
       }
     });
   }
@@ -57,7 +77,7 @@ export default function Model(props){
             <div>
             </div>
           </div>
-          {sizes}
+          {sizesComponents}
         </div>
       </div>
     </div>

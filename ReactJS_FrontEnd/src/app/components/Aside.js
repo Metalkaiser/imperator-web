@@ -59,8 +59,8 @@ export default function Aside(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="gastos">
-                    <span>Gastos</span>
+                  <Link to="balances">
+                    <span>Balances</span>
                   </Link>
                 </li>
               </ul>
