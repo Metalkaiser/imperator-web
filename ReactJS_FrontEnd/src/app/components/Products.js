@@ -130,7 +130,6 @@ export default class Products extends React.Component {
     })
   }
 
-  
   render(){
     return(
       <div className='product mb-3 p-2'>
@@ -141,7 +140,6 @@ export default class Products extends React.Component {
           {this.state.modelList}
           <div className="d-flex flex-row justify-content-around my-5">
             <div><button type="button" className="btn btn-info" onClick={(e) => this.newModel(0,e)}>Agregar modelo</button></div>
-            <div><button type="button" className="btn btn-danger">Quitar modelo</button></div>
           </div>
         </div>
       </div>

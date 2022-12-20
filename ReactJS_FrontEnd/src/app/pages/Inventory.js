@@ -1,7 +1,5 @@
 import Pagination from "../components/Pagination";
 
-
-
 export default function Inventory() {
   return (
     <div className="d-flex w-100 h-100">

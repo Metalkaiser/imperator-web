@@ -1,8 +1,7 @@
-//import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import jQuery from 'jquery';
 import React from 'react';
-import Products from '../../components/Products';
+import * as Testdata from '../../components/testdata/Testdata';
 import Swal from 'sweetalert2';
 
 export default class Newbuy extends React.Component {
@@ -13,166 +12,34 @@ export default class Newbuy extends React.Component {
     }
   }
   
-  suppliers = [
-    {
-      id:1,
-      supplier:'Proveedor 1',
-      products:[1,2]
-    },
-    {
-      id:2,
-      supplier:'Proveedor 2',
-      products:[3,4]
-    }
-  ];
-  products = [
-    {
-      id:1,
-      product:'Producto 1',
-      type:'ring'
-    },
-    {
-      id:2,
-      product:'Producto 2',
-      type:'ring'
-    },
-    {
-      id:3,
-      product:'Producto 3',
-      type:'ring'
-    },
-    {
-      id:4,
-      product:'Producto 4',
-      type:'collarchain'
-    }
-  ];
-  models = [
-    {
-      id:1,
-      models:[
-        {
-          id:1,
-          name:'dorado'
-        },
-        {
-          id:2,
-          name:'plateado'
-        }
-      ]
-    },
-    {
-      id:2,
-      models:[
-        {
-          id:3,
-          name:'claro'
-        },
-        {
-          id:4,
-          name:'oscuro'
-        }
-      ]
-    },
-    {
-      id:3,
-      models:[
-        {
-          id:5,
-          name:'dorado'
-        },
-        {
-          id:6,
-          name:'plateado'
-        }
-      ]
-    },
-    {
-      id:4,
-      models:[
-        {
-          id:7,
-          name:'60cm'
-        }
-      ]
-    }
-  ];
-  sizes = [
-    {
-      id:1,
-      p_sizes:[7,8,9,10,11,12]
-    },
-    {
-      id:2,
-      p_sizes:[7,8,9,10,11,12]
-    },
-    {
-      id:3,
-      p_sizes:[8,9,10,11,12,13]
-    },
-    {
-      id:4,
-      p_sizes:[8,9,10,11,12,13]
-    },
-    {
-      id:5,
-      p_sizes:[7,8,9,10,11,12,13]
-    },
-    {
-      id:6,
-      p_sizes:[7,8,9,10,11,12,13]
-    },
-    {
-      id:7,
-      p_sizes:[60]
-    }
-  ];
-
-  //Map object for searching values and loading components
-  makeMap(mapeable) {
-    var mapped = [];
-    mapeable.forEach((item,index) => {
-      mapped.push([item.id, item]);
-    });
-    return mapped;
-  }
-
-  suppliersMap = new Map(this.makeMap(this.suppliers));
-  productsMap = new Map(this.makeMap(this.products));
-  modelsMap = new Map(this.makeMap(this.models));
-  sizesMap = new Map(this.makeMap(this.sizes));
-
-  productlist = [];
-
-
+  productlist = []; //an empty array for storing the supplier products components
+  
   /*
     Loads the Products components and their childrens, according to the provider shop
     item: products ids
   */
   selectSupplier(e){
     jQuery('#models').hide();
-    this.productlist = [];
-    let sizes = [];
-    this.suppliersMap.get(parseInt(e.target.value)).products.forEach((product_id,index) => {
-      let product = this.productsMap.get(product_id);
-      sizes = [];
-
-      this.modelsMap.get(product_id).models.forEach(model => {
-        sizes.push(this.sizesMap.get(model.id));
-      });
-      this.productlist.push(
-        <Products
-        key={product_id}
-        product={product}
-        productn={index}
-        models={this.modelsMap.get(product_id)}
-        sizes={sizes} />
-      );
-    });
     
-    this.setState({products : this.productlist});
+    let productPromise = new Promise((resolve, reject) => {
+      this.productlist = Testdata.selectSupplier(e,'buy');
+      if (this.productlist !== []) {
+        resolve(this.productlist);
+      }
+      else {
+        reject('Error');
+      }
+    });
 
-    jQuery('#product-list').show();
+    productPromise.then(
+      (resolve) => {
+        this.setState({products : resolve});
+        jQuery('#product-list').show();
+      },
+      (reject) => {
+        console.log(reject);
+      }
+    );
   }
 
   /*
@@ -230,7 +97,7 @@ export default class Newbuy extends React.Component {
               <label htmlFor="shop" className="form-label">Proveedor</label>
               <select defaultValue="" className="form-select" id="shop" name="shop" onChange={(e) => this.selectSupplier(e)}>
                 <option disabled value="">Seleccione un proveedor</option>
-                {this.suppliers.map((item,index) =>
+                {Testdata.suppliers.map((item) =>
                 <option value={item.id} key={item.supplier + item.id}>{item.supplier}</option>
                 )}
               </select>

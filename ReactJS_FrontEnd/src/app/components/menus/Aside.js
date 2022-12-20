@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import "../../assets/css/aside.css";
-import logo_menu_light from "../../assets/images/menu/logo_menu_light.png";
-import logo_menu_dark from "../../assets/images/menu/logo_menu_dark.png";
-import tienda_light from "../../assets/images/menu/tienda_light.png";
-import compras_light from "../../assets/images/menu/compras_light.png";
-import ventas_light from "../../assets/images/menu/ventas_light.png";
-import tienda_dark from "../../assets/images/menu/tienda_dark.png";
-import compras_dark from "../../assets/images/menu/compras_dark.png";
-import ventas_dark from "../../assets/images/menu/ventas_dark.png";
+import "../../../assets/css/aside.css";
+import logo_menu_light from "../../../assets/images/menu/logo_menu_light.png";
+import logo_menu_dark from "../../../assets/images/menu/logo_menu_dark.png";
+import tienda_light from "../../../assets/images/menu/tienda_light.png";
+import compras_light from "../../../assets/images/menu/compras_light.png";
+import ventas_light from "../../../assets/images/menu/ventas_light.png";
+import tienda_dark from "../../../assets/images/menu/tienda_dark.png";
+import compras_dark from "../../../assets/images/menu/compras_dark.png";
+import ventas_dark from "../../../assets/images/menu/ventas_dark.png";
 import $ from 'jquery';
 
 export default function Aside(props) {
