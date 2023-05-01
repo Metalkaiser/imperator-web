@@ -52,7 +52,7 @@ function App() {
     ['/inventario','Inventario'],
     ['/balances','Balances'],
     ['/compras','Compras'],
-    ['/compras/nueva','Añadir compra'],
+    ['/compras/nueva','Añadir al inventario'],
     ['/ventas','Ventas'],
     ['/ventas/nueva','Añadir venta'],
   ]);

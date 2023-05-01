@@ -16,21 +16,25 @@ let products = [
   {
     id:1,
     product:'Producto 1',
+    price:16,
     type:'ring'
   },
   {
     id:2,
     product:'Producto 2',
+    price:16,
     type:'ring'
   },
   {
     id:3,
     product:'Producto 3',
+    price:16,
     type:'ring'
   },
   {
     id:4,
     product:'Producto 4',
+    price:17,
     type:'collarchain'
   }
 ];
@@ -132,27 +136,22 @@ let sizesMap = new Map(makeMap(sizes));
 let productlist = [];
 
 /*
-  This function checks the selected supplier and loads the products from the supplier
+  This function checks the selected type and loads the products accordingly
 */
-function selectSupplier(e,view){
+function selectProducts(e,view){
   productlist = [];
-  let sizes = [];
-  suppliersMap.get(parseInt(e.target.value)).products.forEach((product_id,index) => {
-    let product = productsMap.get(product_id);
-    sizes = [];
-
-    modelsMap.get(product_id).models.forEach(model => {
-      sizes.push(sizesMap.get(model.id));
-    });
-    productlist.push(
-      <Products
-      key={product_id}
-      view={view}
-      product={product}
-      productn={index}
-      models={modelsMap.get(product_id)}
-      sizes={sizes} />
-    );
+  productsMap.forEach((item,key) => {
+    if (item.type === e.target.value) {
+      productlist.push(
+        <Products
+         key={item.id}
+         models={modelsMap.get(item.id)}
+         productn={item.id}
+         product={item}
+         sizes={sizesMap}
+        />
+      );
+    }
   });
   return productlist;
 }
@@ -167,5 +166,5 @@ export {
   sizes,
   sizesMap,
   makeMap,
-  selectSupplier
+  selectProducts
 }

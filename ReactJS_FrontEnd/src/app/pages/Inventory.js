@@ -1,6 +1,23 @@
 import Pagination from "../components/Pagination";
+import * as Testdata from '../components/testdata/Testdata';
+import InvenRow from "../components/InvenRow";
 
 export default function Inventory() {
+
+  let rows = [];
+  Testdata.products.forEach(product => {
+    let model_sizes = [];
+    Testdata.modelsMap.get(product.id).models.forEach(model => {
+      model_sizes.push(Testdata.sizesMap.get(model.id).p_sizes);
+    })
+    rows.push(<InvenRow
+      key={product.id}
+      product={product}
+      models={Testdata.modelsMap.get(product.id)}
+      sizes={model_sizes}
+    />);
+  });
+
   return (
     <div className="d-flex w-100 h-100">
       <div className="rounded shadow-sm card-md w-100 align-self-center">
@@ -15,138 +32,7 @@ export default function Inventory() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 1</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 2</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 3</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 4</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 5</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 6</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 7</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 8</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 9</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 10</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 11</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src="#" alt="imagen" />
-              </td>
-              <td>Producto 12</td>
-              <td>Dorado, plateado</td>
-              <td>16</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
+            {rows}
           </tbody>
         </table>
         <Pagination />

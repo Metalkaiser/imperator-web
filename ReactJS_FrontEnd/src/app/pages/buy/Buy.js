@@ -10,7 +10,6 @@ export default function Buy() {
               <th>Fecha</th>
               <th>Productos</th>
               <th>Tienda</th>
-              <th>Estado</th>
               <th>Detalles</th>
             </tr>
           </thead>
@@ -21,7 +20,6 @@ export default function Buy() {
               </td>
               <td>Lista 1</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -32,7 +30,6 @@ export default function Buy() {
               </td>
               <td>Lista 2</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -43,7 +40,6 @@ export default function Buy() {
               </td>
               <td>Lista 3</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -54,7 +50,6 @@ export default function Buy() {
               </td>
               <td>Lista 4</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -65,7 +60,6 @@ export default function Buy() {
               </td>
               <td>Lista 5</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -76,7 +70,6 @@ export default function Buy() {
               </td>
               <td>Lista 6</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -87,7 +80,6 @@ export default function Buy() {
               </td>
               <td>Lista 7</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -98,7 +90,6 @@ export default function Buy() {
               </td>
               <td>Lista 8</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -109,7 +100,6 @@ export default function Buy() {
               </td>
               <td>Lista 9</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -120,7 +110,6 @@ export default function Buy() {
               </td>
               <td>Lista 10</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -131,7 +120,6 @@ export default function Buy() {
               </td>
               <td>Lista 11</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>
@@ -142,7 +130,6 @@ export default function Buy() {
               </td>
               <td>Lista 12</td>
               <td>Tienda</td>
-              <td>Status</td>
               <td>
                 <button type="button" className="btn btn-info">Detalles</button>
               </td>

@@ -58,11 +58,6 @@ export default function Aside(props) {
                     <span>Inventario</span>
                   </Link>
                 </li>
-                <li>
-                  <Link to="balances">
-                    <span>Balances</span>
-                  </Link>
-                </li>
               </ul>
             </div>
           </li>
@@ -80,7 +75,7 @@ export default function Aside(props) {
                 </li>
                 <li>
                   <Link to="compras/nueva">
-                    <span>Añadir compra</span>
+                    <span>Añadir al inventario</span>
                   </Link>
                 </li>
               </ul>

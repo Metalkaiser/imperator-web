@@ -7,22 +7,47 @@ import Swal from 'sweetalert2';
 export default class Newbuy extends React.Component {
   constructor(props){
     super(props);
+    let types = [];
+    // eslint-disable-next-line
+    Testdata.products.map((item) => {
+      if (!types.includes(item.type)) {
+        types.push(item.type); 
+      }
+    });
+    let TypesOpts = [];
+    types.forEach((type) => {
+      switch (type) {
+        case 'ring':
+          TypesOpts.push(<option value={type} key={type}>Anillos</option>);
+          break;
+        case 'collarchain':
+          TypesOpts.push(<option value={type} key={type}>Collares</option>);
+          break;
+        case 'bracelet':
+          TypesOpts.push(<option value={type} key={type}>Brazaletes</option>);
+          break;
+        default:
+          break;
+      }
+    });
     this.state = {
-      products : []
+      products : [],
+      types : TypesOpts
     }
   }
   
-  productlist = []; //an empty array for storing the supplier products components
+  productlist = []; //an empty array for storing the products components
   
   /*
-    Loads the Products components and their childrens, according to the provider shop
+    Loads the Products components and their childrens, according to type
     item: products ids
   */
-  selectSupplier(e){
-    jQuery('#models').hide();
-    
-    let productPromise = new Promise((resolve, reject) => {
-      this.productlist = Testdata.selectSupplier(e,'buy');
+  selectType(e){
+    jQuery('#models').hide('slow');
+    jQuery('#product-list').hide('slow');
+
+    let productPromise = new Promise((resolve, reject) => {   //fetch data from DB
+      this.productlist = Testdata.selectProducts(e,'buy');
       if (this.productlist !== []) {
         resolve(this.productlist);
       }
@@ -33,11 +58,18 @@ export default class Newbuy extends React.Component {
 
     productPromise.then(
       (resolve) => {
-        this.setState({products : resolve});
-        jQuery('#product-list').show();
+        this.setState({
+          products : resolve,
+          types : this.state.types
+        });
+        jQuery('#product-list').show('slow');
       },
       (reject) => {
-        console.log(reject);
+        Swal.fire({
+          title:reject,
+          icon:'error',
+          text:'Ocurrió un error al intentar leer la base de datos'
+        });
       }
     );
   }
@@ -77,6 +109,7 @@ export default class Newbuy extends React.Component {
         title: 'Compra guardada!',
         icon: 'success'
       }).finally(() => {
+        console.log(inputs);
         jQuery('form').find('input').val('');
         jQuery('form').find('select').val('');
         jQuery('#product-list').hide();
@@ -94,14 +127,13 @@ export default class Newbuy extends React.Component {
         <div className="rounded shadow-sm card-md w-100 align-self-center p-4">
           <form>
             <div className="mb-3">
-              <label htmlFor="shop" className="form-label">Proveedor</label>
-              <select defaultValue="" className="form-select" id="shop" name="shop" onChange={(e) => this.selectSupplier(e)}>
-                <option disabled value="">Seleccione un proveedor</option>
-                {Testdata.suppliers.map((item) =>
-                <option value={item.id} key={item.supplier + item.id}>{item.supplier}</option>
-                )}
+              <label htmlFor="shop" className="form-label">Tipo de productos</label>
+              <select defaultValue="" className="form-select" id="shop" name="shop" onChange={(e) => this.selectType(e)}>
+                <option disabled value="">Seleccione un tipo de producto</option>
+                {this.state.types}
               </select>
             </div>
+            {this.state.newSupplier}
             <div style={{display:'none'}} id="product-list">
               <hr className='my-5' />
               <div className="products-list">
@@ -125,7 +157,7 @@ export default class Newbuy extends React.Component {
             </div>
             <hr />
             <div className="d-flex flex-row justify-content-around">
-              <button type="button" className="btn btn-save" onClick={ this.saveBuy }>Guardar compra</button>
+              <button type="button" className="btn btn-save" onClick={ this.saveBuy }>Guardar en inventario</button>
               <Link to="../compras" className="btn btn-danger">Cancelar</Link>
             </div>
           </form>
