@@ -63,26 +63,6 @@ export default function Aside(props) {
           </li>
           <li className="py-4">
             <span className="menu-link" onClick={showSubmenu}>
-            <img src={compras} alt="compras" />
-              <span>Compras</span>
-            </span>
-            <div className="submenu my-1">
-              <ul>
-                <li>
-                  <Link to="compras">
-                    <span>Lista de compras</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="compras/nueva">
-                    <span>Añadir al inventario</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li className="py-4">
-            <span className="menu-link" onClick={showSubmenu}>
             <img src={ventas} alt="ventas" />
               <span>Ventas</span>
             </span>
@@ -96,6 +76,26 @@ export default function Aside(props) {
                 <li>
                   <Link to="ventas/nueva">
                     <span>Añadir venta</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li className="py-4">
+            <span className="menu-link" onClick={showSubmenu}>
+            <img src={compras} alt="Otros" />
+              <span>Otros</span>
+            </span>
+            <div className="submenu my-1">
+              <ul>
+                <li>
+                  <Link to="movimientos">
+                    <span>Movimientos</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="añadir/nueva">
+                    <span>Añadir al inventario</span>
                   </Link>
                 </li>
               </ul>

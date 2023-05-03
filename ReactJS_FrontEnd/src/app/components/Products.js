@@ -6,6 +6,14 @@ export default class Products extends React.Component {
   constructor(props){
     super(props);
     let initModelList = [];
+    let sizes = [];
+    if (props.type === 'ring') {
+      sizes = ['7','8','9','10','11','12','13'];
+    } else if (props.type === 'collarchain') {
+      sizes = ['60cm'];
+    } else {
+      sizes = ['Único'];
+    }
     props.models.models.forEach((model,index) => {
       initModelList.push(
       <Model
@@ -13,7 +21,7 @@ export default class Products extends React.Component {
       productn={props.productn}
       model={model}
       modeln={index}
-      sizes={props.sizes.get(model.id)} />
+      sizes={sizes} />
       );
     });
     

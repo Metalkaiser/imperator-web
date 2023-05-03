@@ -78,7 +78,15 @@ export default class Newsell extends React.Component {
   sizes(selectedProduct,selectedModel,sizesOptions) {
     let checked = false;
     let selectedSizes = {sizes:[],quantities:[]}
-    Testdata.sizesMap.get(parseInt(selectedModel)).p_sizes.forEach(size => {
+    let model_sizes = [];
+    if (Testdata.productsMap.get(parseInt(selectedProduct)).type === 'ring') {
+      model_sizes = ['7','8','9','10','11','12','13'];
+    } else if (Testdata.productsMap.get(parseInt(selectedProduct)).type === 'collarchain') {
+      model_sizes = ['60cm'];
+    } else {
+      model_sizes = ['Único'];
+    }
+    model_sizes.forEach(size => {
       sizesOptions += "<div class='col form-check'><label class='form-check-label' htmlFor='"
       + size
       + "'>"

@@ -5,7 +5,7 @@ export default function Model(props){
 
   //Create a SizeBuy component for each size
   let sizes = [];
-  props.sizes.p_sizes.forEach((size, index) => {
+  props.sizes.forEach((size, index) => {
     sizes.push(<SizeBuy 
       key={size + "_" + index}
       productn={props.productn}
