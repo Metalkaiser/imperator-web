@@ -3,7 +3,7 @@ export default function Productsell(props) {
     <tr>
       <td>
         <input type='hidden' value={props.productsMap.get(parseInt(props.selectedProduct)).id} name='product[]'/>
-        {props.productsMap.get(parseInt(props.selectedProduct)).product}
+        {props.productsMap.get(parseInt(props.selectedProduct)).name}
       </td>
       <td>
         <input type='hidden' value={props.productModelsMap.get(parseInt(props.selectedModel)).id} name='model[]'/>

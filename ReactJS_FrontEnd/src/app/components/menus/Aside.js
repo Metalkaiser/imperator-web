@@ -94,7 +94,7 @@ export default function Aside(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="añadir/nueva">
+                  <Link to="add/nueva">
                     <span>Añadir al inventario</span>
                   </Link>
                 </li>

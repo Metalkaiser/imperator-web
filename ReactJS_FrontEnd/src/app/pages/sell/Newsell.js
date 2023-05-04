@@ -26,7 +26,7 @@ export default class Newsell extends React.Component {
     let [selectedProduct,selectedModel] = [null,null];  //A couple of variables for storing the selections
     //For each product in existence
     Testdata.products.forEach(product =>{
-      productOptions += "<option value='" + product.id + "'>" + product.product + "</option>";
+      productOptions += "<option value='" + product.id + "'>" + product.name + "</option>";
     });
     Swal.fire({
       title:'Seleccione un producto',

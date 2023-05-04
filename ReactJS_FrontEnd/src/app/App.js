@@ -52,7 +52,7 @@ function App() {
     ['/inventario','Inventario'],
     ['/balances','Balances'],
     ['/movimientos','Movimientos'],
-    ['/añadir/nueva','Añadir al inventario'],
+    ['/add/nueva','Añadir al inventario'],
     ['/ventas','Ventas'],
     ['/ventas/nueva','Añadir venta'],
   ]);
@@ -78,7 +78,7 @@ function App() {
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="inventario" element={<Inventory />} />
                     <Route path="movimientos" element={<Buy />} />
-                    <Route path="añadir/nueva" element={<Newbuy />} />
+                    <Route path="add/nueva" element={<Newbuy />} />
                     <Route path="ventas" element={<Sell />} />
                     <Route path="ventas/nueva" element={<Newsell />} />
                   </Routes>

@@ -1,41 +1,29 @@
 import Products from '../../components/Products';
 
-let suppliers = [
-  {
-    id:1,
-    supplier:'Proveedor 1',
-    products:[1,2]
-  },
-  {
-    id:2,
-    supplier:'Proveedor 2',
-    products:[3,4]
-  }
-];
 let products = [
   {
     id:1,
-    product:'Producto 1',
-    price:16,
+    name:'Anillo lobo Fenrir',
+    price:18,
     type:'ring'
   },
   {
     id:2,
-    product:'Producto 2',
-    price:16,
-    type:'ring'
+    name:'Collar matillo de Thor',
+    price:18,
+    type:'collarchain'
   },
   {
     id:3,
-    product:'Producto 3',
+    name:'Anillo circulo de calaveras',
     price:16,
     type:'ring'
   },
   {
     id:4,
-    product:'Producto 4',
-    price:17,
-    type:'collarchain'
+    name:'Brazalete vikingo',
+    price:20,
+    type:'bracelet'
   }
 ];
 let models = [
@@ -57,11 +45,19 @@ let models = [
     models:[
       {
         id:3,
-        name:'claro'
+        name:'cuadrado'
       },
       {
         id:4,
-        name:'oscuro'
+        name:'plateado'
+      },
+      {
+        id:5,
+        name:'dorado',
+      },
+      {
+        id:6,
+        name:'mazo'
       }
     ]
   },
@@ -69,11 +65,11 @@ let models = [
     id:3,
     models:[
       {
-        id:5,
+        id:7,
         name:'dorado'
       },
       {
-        id:6,
+        id:8,
         name:'plateado'
       }
     ]
@@ -82,11 +78,46 @@ let models = [
     id:4,
     models:[
       {
-        id:7,
-        name:'60cm'
+        id:9,
+        name:'60mm'
       }
     ]
   }
+];
+let sells = [
+  {
+    id:1,
+    date:'25-08-2022',
+    clientname:'Cliente 1',
+    clientphone:'04269876432',
+    amount:20,
+    products:[4],
+    models:[9],
+    quantities:[1],
+    sellstatus:'delivered'
+  },
+  {
+    id:2,
+    date:'04-09-2022',
+    clientname:'Cliente 2',
+    clientphone:'04121234567',
+    amount:36,
+    products:[1,2],
+    models:[1,5],
+    quantities:[1,1],
+    sellstatus:'delivered'
+  },
+  {
+    id:3,
+    date:'04-09-2022',
+    clientname:'Cliente 3',
+    clientphone:'04145551234',
+    amount:36,
+    products:[1,2,4],
+    models:[1,5,9],
+    quantities:[1,1,1],
+    sellstatus:'delivered'
+  },
 ];
 
 //Map object for searching values and loading components
@@ -98,7 +129,7 @@ function makeMap(mapeable) {
   return mapped;
 }
 
-let suppliersMap = new Map(makeMap(suppliers));
+let sellsMap = new Map(makeMap(sells));
 let productsMap = new Map(makeMap(products));
 let modelsMap = new Map(makeMap(models));
 
@@ -126,8 +157,8 @@ function selectProducts(e,view){
 }
 
 export {
-  suppliers,
-  suppliersMap,
+  sells,
+  sellsMap,
   products,
   productsMap,
   models,

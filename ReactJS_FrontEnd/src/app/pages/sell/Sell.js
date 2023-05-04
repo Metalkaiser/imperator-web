@@ -1,6 +1,19 @@
 import Pagination from "../../components/Pagination";
+import * as Testdata from '../../components/testdata/Testdata';
+import SellRow from '../../components/sell/SellRow';
 
 export default function Sell() {
+
+  let rows = [];
+
+  Testdata.sells.forEach(sell => {
+    rows.push(<SellRow
+      key={sell.id}
+      sell={sell}
+      products={Testdata.productsMap}
+      />);
+  });
+
   return(
     <div className="d-flex w-100 h-100 overflow-scroll">
       <div className="rounded shadow-sm card-md w-100 align-self-center">
@@ -15,138 +28,7 @@ export default function Sell() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 1</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 2</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 3</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 4</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 5</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 6</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 7</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 8</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 9</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 10</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 11</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 12</td>
-              <td>Cliente</td>
-              <td>Status</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
+            {rows}
           </tbody>
         </table>
         <Pagination />

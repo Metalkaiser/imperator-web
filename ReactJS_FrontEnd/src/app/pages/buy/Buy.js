@@ -1,4 +1,5 @@
 import Pagination from "../../components/Pagination";
+import * as Testdata from '../../components/testdata/Testdata';
 
 export default function Buy() {
   return(
@@ -14,126 +15,7 @@ export default function Buy() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 1</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 2</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 3</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 4</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 5</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 6</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 7</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 8</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 9</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 10</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 11</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                08/11/2022
-              </td>
-              <td>Lista 12</td>
-              <td>Tienda</td>
-              <td>
-                <button type="button" className="btn btn-info">Detalles</button>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
         <Pagination />
