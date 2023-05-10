@@ -2,16 +2,16 @@ export default function Productsell(props) {
   return(
     <tr>
       <td>
-        <input type='hidden' value={props.productsMap.get(parseInt(props.selectedProduct)).id} name='product[]'/>
-        {props.productsMap.get(parseInt(props.selectedProduct)).name}
+        <input type='hidden' value={props.product[0]} name='product[]'/>
+        {props.product[1]}
       </td>
       <td>
-        <input type='hidden' value={props.productModelsMap.get(parseInt(props.selectedModel)).id} name='model[]'/>
-        {props.productModelsMap.get(parseInt(props.selectedModel)).name}
+        <input type='hidden' value={props.model[0]} name='model[]'/>
+        {props.model[1]}
       </td>
       <td>
-        <input type='hidden' value={props.ssize} name='size[]'/>
-        {props.ssize}
+        <input type='hidden' value={props.selectedSizes.sizes[props.index]} name='size[]'/>
+        {props.selectedSizes.sizes[props.index]}
       </td>
       <td>
         <input type='hidden' value={props.selectedSizes.quantities[props.index]} name='quantity[]'/>

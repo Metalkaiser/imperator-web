@@ -8,6 +8,15 @@ export default function Inventory() {
   let rows = [];
   Testdata.products.forEach(product => {
     let model_sizes = [];
+    let model_names = ['',[]];
+    product.models.forEach((model,i) => {
+      model_names[1].push(Testdata.modelsMap.get(model).name);
+      if (i === (product.models.length - 1)) {
+        model_names[0] += Testdata.modelsMap.get(model).name;
+      } else {
+        model_names[0] += Testdata.modelsMap.get(model).name + ', ';
+      }
+    });
     if (product.type === 'ring') {
       model_sizes = ['7','8','9','10','11','12','13'];
     } else if (product.type === 'collarchain') {
@@ -18,7 +27,7 @@ export default function Inventory() {
     rows.push(<InvenRow
       key={product.id}
       product={product}
-      models={Testdata.modelsMap.get(product.id)}
+      models={model_names}
       type={product.type}
       sizes={model_sizes}
     />);

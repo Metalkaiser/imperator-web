@@ -21,18 +21,11 @@ export default function InvenRow(props) {
       break;
   }
 
-  for (let index = 0; index < props.models.models.length; index++) {
+  for (let index = 0; index < props.models[1].length; index++) {
     sizeth = '';
     sizetd = '';
     sizetable = '';
-    // eslint-disable-next-line
-    if (index == props.models.models.length - 1) {
-      models += props.models.models[index].name;
-    }
-    else {
-      models += props.models.models[index].name + ', '
-    }
-    sizes += "<p><b>" + props.models.models[index].name + ":</b><p>";
+    sizes += "<p><b>" + props.models[1][index] + ":</b><p>";
     sizetable += "<table class='table mb-3'><tr>";
     props.sizes.forEach(size => {
       sizeth += "<th>" + size + "</th>";
@@ -121,7 +114,7 @@ export default function InvenRow(props) {
       </td>
       <td>{props.product.name}</td>
       <td>{type}</td>
-      <td>{models}</td>
+      <td>{props.models[0]}</td>
       <td>{props.product.price}</td>
       <td>
         <button type="button" className="btn btn-info" onClick={details}>Detalles</button>

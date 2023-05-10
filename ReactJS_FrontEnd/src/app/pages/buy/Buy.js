@@ -1,5 +1,5 @@
 import Pagination from "../../components/Pagination";
-import * as Testdata from '../../components/testdata/Testdata';
+//import * as Testdata from '../../components/testdata/Testdata';
 
 export default function Buy() {
   return(

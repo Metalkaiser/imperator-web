@@ -10,7 +10,7 @@ export default function Sell() {
     rows.push(<SellRow
       key={sell.id}
       sell={sell}
-      products={Testdata.productsMap}
+      data={Testdata}
       />);
   });
 
