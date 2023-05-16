@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
-import Buy from "./pages/buy/Buy";
+import Movs from "./pages/buy/Movs";
 import Newbuy from "./pages/buy/Newbuy";
 import Sell from "./pages/sell/Sell";
 import Newsell from "./pages/sell/Newsell";
@@ -52,7 +52,7 @@ function App() {
     ['/inventario','Inventario'],
     ['/balances','Balances'],
     ['/movimientos','Movimientos'],
-    ['/añadir/nueva','Añadir al inventario'],
+    ['/add/nueva','Añadir al inventario'],
     ['/ventas','Ventas'],
     ['/ventas/nueva','Añadir venta'],
   ]);
@@ -77,8 +77,8 @@ function App() {
                     <Route path="/" element={<Navigate replace to="dashboard" />}/>
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="inventario" element={<Inventory />} />
-                    <Route path="movimientos" element={<Buy />} />
-                    <Route path="añadir/nueva" element={<Newbuy />} />
+                    <Route path="movimientos" element={<Movs />} />
+                    <Route path="add/nueva" element={<Newbuy />} />
                     <Route path="ventas" element={<Sell />} />
                     <Route path="ventas/nueva" element={<Newsell />} />
                   </Routes>

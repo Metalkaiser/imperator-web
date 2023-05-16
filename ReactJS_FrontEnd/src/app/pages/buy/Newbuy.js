@@ -105,11 +105,16 @@ export default class Newbuy extends React.Component {
     }
     //....if not, proceed to save buying data
     else {
+      console.log(inputs);
+      checkboxes.forEach(checkbox => {
+        if (checkbox.type === 'checkbox') {
+          checkbox.checked = false;
+        }
+      });
       Swal.fire({
         title: 'Compra guardada!',
         icon: 'success'
       }).finally(() => {
-        console.log(inputs);
         jQuery('form').find('input').val('');
         jQuery('form').find('select').val('');
         jQuery('#product-list').hide();
@@ -127,13 +132,12 @@ export default class Newbuy extends React.Component {
         <div className="rounded shadow-sm card-md w-100 align-self-center p-4">
           <form>
             <div className="mb-3">
-              <label htmlFor="shop" className="form-label">Tipo de productos</label>
-              <select defaultValue="" className="form-select" id="shop" name="shop" onChange={(e) => this.selectType(e)}>
+              <label htmlFor="type" className="form-label">Tipo de productos</label>
+              <select defaultValue="" className="form-select" id="type" name="type" onChange={(e) => this.selectType(e)}>
                 <option disabled value="">Seleccione un tipo de producto</option>
                 {this.state.types}
               </select>
             </div>
-            {this.state.newSupplier}
             <div style={{display:'none'}} id="product-list">
               <hr className='my-5' />
               <div className="products-list">
@@ -142,23 +146,10 @@ export default class Newbuy extends React.Component {
               </div>
             </div>
             <hr className='my-5' />
-            <div>
-              <h4>Detalles de pago</h4>
-              <div className="d-flex flex-row justify-content-evenly">
-                <div className="mb-3">
-                  <label htmlFor="amount" className="form-label">Monto pagado</label>
-                  <input type="number" className="form-control" id="amount" name="amount" placeholder="Monto pagado" />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="date" className="form-label">Fecha de la compra</label>
-                  <input type="date" className="form-control" id="date" name="date" />
-                </div>
-              </div>
-            </div>
             <hr />
             <div className="d-flex flex-row justify-content-around">
               <button type="button" className="btn btn-save" onClick={ this.saveBuy }>Guardar en inventario</button>
-              <Link to="../compras" className="btn btn-danger">Cancelar</Link>
+              <Link to="../movimientos" className="btn btn-danger">Cancelar</Link>
             </div>
           </form>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Swal from "sweetalert2";
 import Model from "./Model";
 
-export default class Products extends React.Component {
+export default class NewModel extends React.Component {
 
   constructor(props){
     super(props);

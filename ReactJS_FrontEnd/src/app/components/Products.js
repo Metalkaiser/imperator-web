@@ -14,7 +14,7 @@ export default class Products extends React.Component {
     } else {
       sizes = ['Único'];
     }
-    props.models.models.forEach((model,index) => {
+    props.models.forEach((model,index) => {
       initModelList.push(
       <Model
       key={model.name + model.id}
@@ -33,8 +33,8 @@ export default class Products extends React.Component {
     return(
       <div className='product mb-3 p-2'>
         <div className="product-title m-4 text-center" data-bs-toggle="collapse" data-bs-target={"#product_" + this.props.productn}>
-          <img src={ this.props.product.product } alt={ this.props.product.product } />
-          <h5>{ this.props.product.product }</h5>
+          <img src={ this.props.product.name } alt={ this.props.product.name } />
+          <h5>{ this.props.product.name }</h5>
         </div>
         <div className="product-models collapse" id={"product_" + this.props.productn}>
           {this.state.modelList}

@@ -4,20 +4,28 @@ export default function InvenRow(props) {
 
   let models = '';
   let sizes = '';
-  let sizeth, sizetd, sizetable;
+  let sizeth, sizetd, sizetable, type;
 
-  for (let index = 0; index < props.models.models.length; index++) {
+  switch (props.product.type) {
+    case 'ring':
+      type = "Anillo";
+      break;
+    case 'collarchain':
+      type = "Collar";
+      break;
+    case 'bracelet':
+      type = "Brazalete";
+      break;
+    default:
+      type = "Otro";
+      break;
+  }
+
+  for (let index = 0; index < props.models[1].length; index++) {
     sizeth = '';
     sizetd = '';
     sizetable = '';
-    // eslint-disable-next-line
-    if (index == props.models.models.length - 1) {
-      models += props.models.models[index].name;
-    }
-    else {
-      models += props.models.models[index].name + ', '
-    }
-    sizes += "<p><b>" + props.models.models[index].name + ":</b><p>";
+    sizes += "<p><b>" + props.models[1][index] + ":</b><p>";
     sizetable += "<table class='table mb-3'><tr>";
     props.sizes.forEach(size => {
       sizeth += "<th>" + size + "</th>";
@@ -28,7 +36,7 @@ export default function InvenRow(props) {
   const details = () => {
     Swal.fire({
       title:props.product.product,
-      html:"<div><img src='" + props.product.product + "' alt='" + props.product.product + "'></div>"
+      html:"<div><img src='" + props.product.name + "' alt='" + props.product.name + "'></div>"
       + "<div><h5>Tallas:</h5></div>"
       + "<div>" + sizes + "</div>"
     });
@@ -39,13 +47,13 @@ export default function InvenRow(props) {
       showCancelButton:true,
       cancelButtonText:'Cancelar',
       confirmButtonText:'Siguiente',
-      title:'Editar ' + props.product.product,
-      imageUrl:props.product.product,
-      imageAlt:props.product.product,
+      title:'Editar ' + props.product.name,
+      imageUrl:props.product.name,
+      imageAlt:props.product.name,
       html:"<div class='input-group mb-3'>"
       + "<span class='input-group-text'>Nombre</span>"
       + "<input id='name' type='text' class='form-control' placeholder='Nombre del producto'"
-      + " value='" + props.product.product + "' "
+      + " value='" + props.product.name + "' "
       + "aria-label='Nombre del producto' aria-describedby='inputGroup-sizing-sm'>"
       + "</div>"
       + "<div class='input-group mb-3'>"
@@ -85,7 +93,7 @@ export default function InvenRow(props) {
           + "<table class='table'><tr>"
           + "<td></td><th>Información anterior</th><th>Información nueva</th></tr><tr>"
           + "<th>Nombre</th><td>"
-          + props.product.product + "</td>"
+          + props.product.name + "</td>"
           + "<td>" + name + "</td></tr><tr>"
           + "<th>Precio</th><td>"
           + props.product.price + "</td>"
@@ -102,11 +110,11 @@ export default function InvenRow(props) {
   return(
     <tr>
       <td>
-        <img src="#" alt={props.product.product} />
+        <img src="#" alt={props.product.name} />
       </td>
-      <td>{props.product.product}</td>
-      <td></td>
-      <td>{models}</td>
+      <td>{props.product.name}</td>
+      <td>{type}</td>
+      <td>{props.models[0]}</td>
       <td>{props.product.price}</td>
       <td>
         <button type="button" className="btn btn-info" onClick={details}>Detalles</button>
