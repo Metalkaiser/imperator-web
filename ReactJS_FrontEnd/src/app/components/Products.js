@@ -28,12 +28,15 @@ export default class Products extends React.Component {
     this.state = {modelList:initModelList};
   }
 
+  imgpath = 'http://127.0.0.1:8000/storage/';
+
 
   render(){
     return(
       <div className='product mb-3 p-2'>
         <div className="product-title m-4 text-center" data-bs-toggle="collapse" data-bs-target={"#product_" + this.props.productn}>
-          <img src={ this.props.product.name } alt={ this.props.product.name } />
+          <img src={ this.imgpath + this.props.product.name + '.jpg'} alt={ this.props.product.name } 
+          style={{maxWidth:'80px'}} />
           <h5>{ this.props.product.name }</h5>
         </div>
         <div className="product-models collapse" id={"product_" + this.props.productn}>

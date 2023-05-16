@@ -44,7 +44,7 @@ export default class Newbuy extends React.Component {
   */
   selectType(e){
     jQuery('#models').hide('slow');
-    jQuery('#product-list').hide('slow');
+    jQuery('#product-list').hide();
 
     let productPromise = new Promise((resolve, reject) => {   //fetch data from DB
       this.productlist = Testdata.selectProducts(e,'buy');

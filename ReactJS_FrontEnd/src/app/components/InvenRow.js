@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 export default function InvenRow(props) {
 
-  let models = '';
+  let imgpath = 'http://127.0.0.1:8000/storage/';
   let sizes = '';
   let sizeth, sizetd, sizetable, type;
 
@@ -36,7 +36,9 @@ export default function InvenRow(props) {
   const details = () => {
     Swal.fire({
       title:props.product.product,
-      html:"<div><img src='" + props.product.name + "' alt='" + props.product.name + "'></div>"
+      html:"<div><img src='" + imgpath
+      + props.product.name + ".jpg' alt='" + props.product.name
+      + "' style='max-width:150px'></div>"
       + "<div><h5>Tallas:</h5></div>"
       + "<div>" + sizes + "</div>"
     });
@@ -110,7 +112,8 @@ export default function InvenRow(props) {
   return(
     <tr>
       <td>
-        <img src="#" alt={props.product.name} />
+        <img src={imgpath + props.product.name + '.jpg'} alt={props.product.name} 
+        style={{maxWidth:'80px'}} />
       </td>
       <td>{props.product.name}</td>
       <td>{type}</td>
