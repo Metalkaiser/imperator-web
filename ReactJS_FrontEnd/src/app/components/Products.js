@@ -14,7 +14,7 @@ export default class Products extends React.Component {
     } else {
       sizes = ['Único'];
     }
-    props.models.models.forEach((model,index) => {
+    props.models.forEach((model,index) => {
       initModelList.push(
       <Model
       key={model.name + model.id}

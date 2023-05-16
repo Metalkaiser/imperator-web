@@ -111,9 +111,6 @@ export default class Newbuy extends React.Component {
           checkbox.checked = false;
         }
       });
-      inputs.forEach(input => {
-        console.log(input);
-      });
       Swal.fire({
         title: 'Compra guardada!',
         icon: 'success'
@@ -141,7 +138,6 @@ export default class Newbuy extends React.Component {
                 {this.state.types}
               </select>
             </div>
-            {this.state.newSupplier}
             <div style={{display:'none'}} id="product-list">
               <hr className='my-5' />
               <div className="products-list">

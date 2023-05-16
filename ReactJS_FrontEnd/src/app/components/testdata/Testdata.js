@@ -57,11 +57,11 @@ let models = [
   },
   {
     id:7,
-    name:'dorado'
+    name:'claro'
   },
   {
     id:8,
-    name:'plateado'
+    name:'oscuro'
   },
   {
     id:9,
@@ -112,6 +112,57 @@ let sells = [
     sellstatus:'delivered'
   },
 ];
+let movs = [
+  {
+    id:1,
+    date:'25-08-2022',
+    mov:'venta brazalete vikingo',
+    type:'in',
+    amount:20
+  },
+  {
+    id:2,
+    date:'14-05-2022',
+    mov:'compra mercancía',
+    type:'out',
+    amount:246
+  },
+  {
+    id:3,
+    date:'04-06-2022',
+    mov:'compra embalaje',
+    type:'out',
+    amount:60
+  },
+  {
+    id:4,
+    date:'09-06-2020',
+    mov:'pasaje',
+    type:'out',
+    amount:15
+  },
+  {
+    id:5,
+    date:'04-09-2022',
+    mov:'venta anillo y collar',
+    type:'in',
+    amount:36
+  },
+  {
+    id:6,
+    date:'04-09-2022',
+    mov:'venta anillo, brazalete y collar',
+    type:'in',
+    amount:52
+  },
+  {
+    id:7,
+    date:'04-12-2022',
+    mov:'publicidad botón',
+    type:'out',
+    amount:20
+  }
+]
 
 //Map object for searching values and loading components
 function makeMap(mapeable) {
@@ -127,6 +178,7 @@ let productsMap = new Map(makeMap(products));
 let modelsMap = new Map(makeMap(models));
 
 let productlist = [];
+let modelArr = [];
 
 /*
   This function checks the selected type and loads the products accordingly
@@ -135,10 +187,14 @@ function selectProducts(e,view){
   productlist = [];
   productsMap.forEach((item,key) => {
     if (item.type === e.target.value) {
+      modelArr = [];
+      item.models.forEach(model => {
+        modelArr.push(modelsMap.get(model));
+      });
       productlist.push(
         <Products
          key={item.id}
-         models={modelsMap.get(item.id)}
+         models={modelArr}
          productn={item.id}
          product={item}
          type={item.type}
@@ -150,6 +206,7 @@ function selectProducts(e,view){
 }
 
 export {
+  movs,
   sells,
   sellsMap,
   products,

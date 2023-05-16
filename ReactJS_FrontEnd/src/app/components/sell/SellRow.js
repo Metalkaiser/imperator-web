@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-export default function BuyRow(props) {
+export default function SellRow(props) {
 
   let products = '';
   let status = '';
@@ -36,11 +36,11 @@ export default function BuyRow(props) {
     });
     Swal.fire({
       html:"<div class='text-center'><table class='table'>"
-      + "<tr><th>Fecha" + "</th><td>" + props.sell.date + "</th></tr>"
-      + "<tr><th>Cliente" + "</th><td>" + props.sell.clientname + " " + props.sell.clientlastname + "</th></tr>"
-      + "<tr><th>Teléfono" + "</th><td>" + props.sell.clientphone + "</th></tr>"
-      + "<tr><th>Correo electrónico" + "</th><td>" + props.sell.clientemail + "</th></tr>"
-      + "<tr><th>Estado de la venta" + "</th><td>" + status + "</th></tr>"
+      + `<tr><th>Fecha</th><td>${props.sell.date}</th></tr>`
+      + `<tr><th>Cliente</th><td>${props.sell.clientname} ${props.sell.clientlastname}</th></tr>`
+      + `<tr><th>Teléfono</th><td>${props.sell.clientphone}</th></tr>`
+      + `<tr><th>Correo electrónico</th><td>${props.sell.clientemail}</th></tr>`
+      + `<tr><th>Estado de la venta</th><td>${status}</th></tr>`
       + "</table></div>"
       + "<div class='text-center mt-2'>"
       + "<h5>Productos vendidos</h5><table class='table'>"
