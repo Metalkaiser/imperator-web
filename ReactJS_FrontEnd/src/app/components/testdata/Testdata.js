@@ -161,8 +161,56 @@ let movs = [
     mov:'publicidad botón',
     type:'out',
     amount:20
+  },
+  {
+    id:8,
+    date:'15-04-2023',
+    mov:'compra mercancia',
+    type:'out',
+    amount:400
+  },
+  {
+    id:9,
+    date:'28-04-2023',
+    mov:'Pago envío',
+    type:'out',
+    amount:30
+  },
+  {
+    id:10,
+    date:'28-04-2023',
+    mov:'Venta anillo, collar, anillo',
+    type:'in',
+    amount:60
   }
-]
+];
+let mov_month = {
+  sells:[
+    {
+      id:10,
+      date:'28-04-2023',
+      mov:'Venta anillo, collar, anillo',
+      type:'in',
+      amount:60
+    }
+  ],
+  spends:[
+    {
+      id:8,
+      date:'18-04-2023',
+      mov:'compra mercancia',
+      type:'out',
+      amount:400
+    },
+    {
+      id:9,
+      date:'28-04-2023',
+      mov:'Pago envío',
+      type:'out',
+      amount:30
+    }
+  ]
+  };
 
 //Map object for searching values and loading components
 function makeMap(mapeable) {
@@ -207,6 +255,7 @@ function selectProducts(e,view){
 
 export {
   movs,
+  mov_month,
   sells,
   sellsMap,
   products,

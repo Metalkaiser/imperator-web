@@ -2,7 +2,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import jQuery from 'jquery';
 import * as Testdata from '../../components/testdata/Testdata';
-import Productsell from '../../components/Productsell';
+import Productsell from '../../components/sell/Productsell';
 import '../../components/sell/newsell.css';
 
 export default class Newsell extends React.Component {
