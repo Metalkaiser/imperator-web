@@ -48,6 +48,7 @@ function App() {
   let currentRoute = location.pathname;
 
   const routeTitles = new Map([
+    ['/login','Iniciar sesión'],
     ['/dashboard','Dashboard'],
     ['/inventario','Inventario'],
     ['/balances','Balances'],
