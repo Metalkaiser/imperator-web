@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SizeBuy from "./SizeBuy";
+import SizeBuy from "./buy/SizeBuy";
 
 export default function Model(props){
 
