@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 export default function InvenRow(props) {
 
-  let imgpath = 'http://127.0.0.1:8000/storage/';
+  let imgpath = 'http://127.0.0.1:8000/storage/products/';
   let sizes = '';
   let sizeth, sizetd, sizetable, type;
 
