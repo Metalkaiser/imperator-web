@@ -1,0 +1,14 @@
+.auth-content {
+  background-image: url('../images/bg-1.jpg');
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.auth-content {
+  color: white;
+}
+
+.form-fields {
+  min-width: 50%;
+  max-width: 60px;
+}

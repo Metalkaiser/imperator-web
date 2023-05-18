@@ -28,7 +28,7 @@ export default class Products extends React.Component {
     this.state = {modelList:initModelList};
   }
 
-  imgpath = 'http://127.0.0.1:8000/storage/';
+  imgpath = 'http://127.0.0.1:8000/storage/products/';
 
 
   render(){

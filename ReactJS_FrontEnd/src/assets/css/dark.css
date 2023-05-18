@@ -4,7 +4,7 @@
 .subheader, footer, #links a, .form-control, .form-check-input, .form-select {
   background-color: #4E2A2C
 }
-aside, .card-md, .swal2-popup {
+aside, .card-md, .swal2-popup, #kt_quick_user {
   background-color:#101820;
 }
 #userinit {

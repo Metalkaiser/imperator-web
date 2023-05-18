@@ -10,6 +10,7 @@ import Aside from "./components/menus/Aside";
 import Header from "./components/menus/Header";
 import Footer from "./components/menus/Footer";
 import Subheader from "./components/menus/Subheader";
+import FloatingUser from "./components/menus/FloatingUser";
 import React from "react";
 import './App.css';
 
@@ -48,6 +49,7 @@ function App() {
   let currentRoute = location.pathname;
 
   const routeTitles = new Map([
+    ['/login','Iniciar sesión'],
     ['/dashboard','Dashboard'],
     ['/inventario','Inventario'],
     ['/balances','Balances'],
@@ -71,6 +73,7 @@ function App() {
             <div className="d-flex flex-column flex-grow-1">
               <Header />
               <div className='flex-grow-1'>
+                <FloatingUser user='Juan.jpg' />
                 <Subheader title={title} />
                 <div className='p-4 h-100'>
                   <Routes>
@@ -88,7 +91,6 @@ function App() {
             </div>
           </article>
         </section>
-        <div id="kt_quick_user"></div>
       </ThemeSelector>
     ); 
   }
@@ -96,7 +98,7 @@ function App() {
     return (
       <>
         <Routes>
-          <Route path="/" element={<Navigate replace to="login" />}/>
+          <Route path="*" element={<Navigate replace to="login" />}/>
           <Route path="login" element={<Auth />} />
         </Routes>
       </>

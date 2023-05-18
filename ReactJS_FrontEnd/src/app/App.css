@@ -1,18 +1,15 @@
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,16 +20,23 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
 .checknum {
   max-width: 80px;
   margin: auto;
 }
-
+#kt_quick_user {
+  right: 0%;
+  display: none;
+}
+.list-group-item {
+  background: none;
+}
+.list-group-item img {
+  width: 40px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
