@@ -106,6 +106,28 @@ export default class Newbuy extends React.Component {
     //....if not, proceed to save buying data
     else {
       console.log(inputs);
+      let inputModels = [], inputSizes = {}, inputQty = {};
+      let currentModel = '';
+      inputs.forEach(input => {
+        if (input.name.substring(0,5) === "model") {
+          inputModels.push(input.value);
+          inputSizes[input.value] = [];
+          inputQty[input.value] = [];
+          currentModel = input.value;
+        }
+        if (input.name.substring(0,5) === "size_") {
+          inputSizes[currentModel].push(input.value);
+        }
+        if (input.name.substring(0,9) === "quantity_") {
+          inputQty[currentModel].push(parseInt(input.value));
+        }
+      });
+      let jsonArr = {
+        'models':inputModels,
+        'sizes':inputSizes,
+        'quantities':inputQty
+      };
+      console.log(jsonArr);
       checkboxes.forEach(checkbox => {
         if (checkbox.type === 'checkbox') {
           checkbox.checked = false;

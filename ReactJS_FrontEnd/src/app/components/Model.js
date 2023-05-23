@@ -9,7 +9,7 @@ export default function Model(props){
     sizes.push(<SizeBuy 
       key={size + "_" + index}
       productn={props.productn}
-      modeln={props.modeln}
+      modeln={props.model}
       size={size} 
       sizen={index} />)
   });
@@ -21,6 +21,7 @@ export default function Model(props){
       <h5>{props.model.name}</h5>
       <div className="mt-2">
         <div className="row text-center">
+        <input type="checkbox" value={props.model.id} name="model[]" id={'model_' + props.model.id} style={{opacity:'0'}}/>
           {sizesComponents}
         </div>
       </div>

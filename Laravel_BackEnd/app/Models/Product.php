@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pmodel;
 
 class Product extends Model
 {
@@ -15,4 +16,9 @@ class Product extends Model
         'models',
         'price',
     ];
+
+    public function models()
+    {
+        return $this->hasMany(Pmodel::class);
+    }
 }

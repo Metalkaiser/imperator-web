@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('pmodels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('product_id');
             $table->string('quantities');
             $table->timestamps();
         });

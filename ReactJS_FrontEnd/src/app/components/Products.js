@@ -37,6 +37,7 @@ export default class Products extends React.Component {
         <div className="product-title m-4 text-center" data-bs-toggle="collapse" data-bs-target={"#product_" + this.props.productn}>
           <img src={ this.imgpath + this.props.product.name + '.jpg'} alt={ this.props.product.name } 
           style={{maxWidth:'80px'}} />
+          <input type="checkbox" value={this.props.product.id} name="product[]" id={'product_' + this.props.product.id} style={{opacity:'0'}}/>
           <h5>{ this.props.product.name }</h5>
         </div>
         <div className="product-models collapse" id={"product_" + this.props.productn}>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Client;
 
 class Sell extends Model
 {
@@ -18,4 +19,9 @@ class Sell extends Model
     'client_id',
     'amount',
   ];
+
+  public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }
