@@ -16,7 +16,5 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
-    $url = Storage::disk('public')->url('Anillo lobo Fenrir.jpg');
-    //return view('welcome');
-    return $url;
+    return view('welcome');
 });
