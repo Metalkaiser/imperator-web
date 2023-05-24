@@ -25,10 +25,11 @@ class ProductRequest extends FormRequest
   public function rules()
   {
     return [
-      'name' => 'required|max:255',
+      'name' => 'required|max:255|unique:products',
       'type' => 'required',
       'models' => 'required',
-      'price' => 'required|numeric'
+      'price' => 'required|numeric',
+      'file' => 'required|mimes:jpg'
     ];
   }
 
@@ -41,10 +42,13 @@ public function messages()
 {
     return [
         'name.required' => 'El nombre del producto es obligatorio',
+        'name.unique' => 'El nombre introducido ya existe',
         'type.required' => 'El tipo de producto es obligatorio',
         'models.required' => 'Los modelos del productos son obligatorios',
         'price.required' => 'El precio del producto es obligatorio',
         'price.numeric' => 'El precio del producto debe ser un valor numérico',
+        'file.required' => 'La imagen del producto es obligatoria',
+        'file.mimes' => 'El archivo debe ser una imagen jpg',
     ];
 }
 

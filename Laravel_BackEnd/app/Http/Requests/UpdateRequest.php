@@ -26,7 +26,8 @@ class UpdateRequest extends FormRequest
   {
     return [
       'name' => 'required|max:255',
-      'price' => 'required|numeric'
+      'price' => 'required|numeric',
+      'file' => 'mimes:jpg'
     ];
   }
 
@@ -41,6 +42,7 @@ class UpdateRequest extends FormRequest
       'name.required' => 'El nombre del producto es obligatorio',
       'price.required' => 'El precio del producto es obligatorio',
       'price.numeric' => 'El precio del producto debe ser un valor numérico',
+      'file.mimes' => 'El archivo debe ser una imagen jpg',
     ];
   }
 
