@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movement;
 use App\Models\Product;
 use App\Models\Pmodel;
+use App\Http\Requests\MovRequest;
 use Illuminate\Http\Request;
 
 class MovementController extends Controller
@@ -44,10 +45,10 @@ class MovementController extends Controller
   /**
    * Guarda un nuevo movimiento en la base de datos.
    *
-   * @param  \Illuminate\Http\Request  $request
+   * @param  \Illuminate\Http\MovRequest  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(MovRequest $request)
   {
     $dbcon = $this->dbtest();
     if ($dbcon) {
