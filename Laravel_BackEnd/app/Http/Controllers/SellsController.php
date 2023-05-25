@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Product;
 use App\Models\Pmodel;
 use Illuminate\Http\Request;
+use App\Http\Requests\SellRequest;
 
 class SellsController extends Controller
 {
@@ -45,10 +46,10 @@ class SellsController extends Controller
   /**
    * Guarda una venta en la base de datos.
    *
-   * @param  \Illuminate\Http\Request  $request
+   * @param  \Illuminate\Http\SellRequest  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(SellRequest $request)
   {
     $dbcon = $this->dbtest();
     if ($dbcon) {

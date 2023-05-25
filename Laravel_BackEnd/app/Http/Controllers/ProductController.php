@@ -6,9 +6,12 @@ use App\Models\Product;
 use App\Models\Pmodel;
 use App\Models\Sell;
 //use App\Models\User;
+use App\Http\Requests\ProductRequest;
+use App\Http\Requests\UpdateRequest;
 use App\Models\Movement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -48,9 +51,7 @@ class ProductController extends Controller
     $dbcon = $this->dbtest();
     if ($dbcon) {
       $products = Product::orderBy('name','asc')->paginate(20);
-      return response()->json([
-        'products' => $products
-        ], 200);
+      return response()->json(['products' => $products], 200);
     } else {
       return response()->json($this->dbError, 503);
     }
@@ -59,10 +60,10 @@ class ProductController extends Controller
   /**
    * Guarda un nuevo producto con todas sus características en la base de datos.
    *
-   * @param  \Illuminate\Http\Request  $request
+   * @param  \Illuminate\Http\ProductRequest  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ProductRequest $request)
   {
     $dbcon = $this->dbtest();
     if ($dbcon) {
@@ -98,12 +99,10 @@ class ProductController extends Controller
 
       $newproduct->models = $models;
       $newproduct->save();
-      $products = Product::orderBy('name','asc')->get();
-
-      return response()->json([
-        'status' => 'success',
-        'products' => $products
-          ], 200);
+      Storage::putFileAs('public/products', $request->file, $request->name . ".jpg");
+      
+      return response()->json(['status' => 'success'], 200);
+      
     } else {
       return response()->json($this->dbError, 503);
     }
@@ -113,23 +112,23 @@ class ProductController extends Controller
    * Modifica el producto editado
    *
    * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
+   * @return \Illuminate\Http\UpdateRequest
    */
-  public function update(Request $request, $id)
+  public function update(UpdateRequest $request, $id)
   {
     $dbcon = $this->dbtest();
     if ($dbcon) {
       $product = Product::find($id);
+      if (isset($request->file)) {
+        Storage::delete('public/products' . $product->name . ".jpg");
+        Storage::putFileAs('public/products', $request->file, $request->name . ".jpg");
+      }
       $product->name = $request->name;
       $product->price = $request->price;
+      
       $product->save();
 
-      $products = Product::orderBy('name','asc')->get();
-
-      return response()->json([
-        'status' => 'success',
-        'products' => $products
-        ], 200);
+      return response()->json(['status' => 'success'], 200);
     } else {
       return response()->json($this->dbError, 503);
     }
