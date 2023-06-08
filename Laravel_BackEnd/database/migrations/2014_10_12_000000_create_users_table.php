@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->tinyInteger('theme')->default(1);       //1: light      2: dark
+            $table->boolean('theme')->default(1);       //1: light      0: dark
+            $table->tinyInteger('role');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
