@@ -17,15 +17,12 @@ use App\Http\Controllers\MovementController;
 |
 */
 
-$except = ['edit', 'show', 'destroy'];
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-  return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+  Route::get('/user', function (Request $request) {
+    return $request->user();
+  });
+  $except = ['edit', 'show', 'destroy'];
+  Route::resource('inventory', ProductController::class)->except($except);
+  Route::resource('sells', SellsController::class)->only(['index', 'create', 'store']);
+  Route::resource('movements', MovementController::class)->except($except);
 });
-Route::middleware('auth:sanctum')->get('/', function () {
-  return "Entrando con sanctum";
-});
-
-Route::resource('inventory', ProductController::class)->except($except);
-Route::resource('sells', SellsController::class)->only(['index', 'create', 'store']);
-Route::resource('movements', MovementController::class)->except($except);
